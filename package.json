@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-mapbox-starter",
+  "name": "mapgatsbox",
   "private": true,
-  "description": "super simple mapbox example / starter for GatsbyJS",
+  "description": "mapbox & GatsbyJS",
   "version": "0.1.0",
-  "author": "Luke Secomb <dev@lukesecomb.digital>",
+  "author": "pixeltronics",
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
@@ -43,9 +43,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lukethacoder/gatsby-mapbox-starter"
-  },
-  "bugs": {
-    "url": "https://github.com/lukethacoder/gatsby-mapbox-starter/issues"
+    "url": "https://github.com/GerritHoskins/mapgatsbox"
   }
 }
