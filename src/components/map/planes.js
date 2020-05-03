@@ -13,7 +13,7 @@ export const Planes = ({ center, zoom }) => {
 
   const map_node = useRef(null)
   const map_ref = useRef(null)
-  
+
   useEffect(() => {
     if (!mapbox_api_key) {
       console.error(
@@ -26,7 +26,7 @@ export const Planes = ({ center, zoom }) => {
       return null
     }
 
-        // Token must be set before constructing map
+    // Token must be set before constructing map
     mapboxgl.accessToken = mapbox_api_key
 
     let map = new mapboxgl.Map({
@@ -34,29 +34,26 @@ export const Planes = ({ center, zoom }) => {
       style: `mapbox://styles/pixeltronics/ck9i4lig60p6p1inmlo2qe2pf`,
       center: center,
       zoom: zoom,
-    });
+    })
     let marker = new mapboxgl.Marker()
-   /*  .setLngLat([11.576124 , 48.137154]) */
+    /*  .setLngLat([11.576124 , 48.137154]) */
     /* .addTo(map); */
-    let geoCoder =
-      new MapboxGeocoder({
-          accessToken: mapboxgl.accessToken,
-         
-          placeholder: "Looking for something?",
-          marker: {
-            color: 'orange'
-            },
-            mapboxgl: mapboxgl,
-        });
-    
+    let geoCoder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+
+      placeholder: "Looking for something?",
+      marker: {
+        color: "orange",
+      },
+      mapboxgl: mapboxgl,
+    })
+
     map_ref.current = map
     map_ref.current = map
 
     map.addControl(new mapboxgl.NavigationControl(), "bottom-right")
-    map.addControl(geoCoder);
-   /*  document.getElementById('geocoder').appendChild(geoCoder.onAdd(map)); */
-    
-  
+    map.addControl(geoCoder)
+    /*  document.getElementById('geocoder').appendChild(geoCoder.onAdd(map)); */
 
     /* const popup = new mapboxgl.Popup({ closeOnClick: false })
       .setLngLat([11.576124 , 48.137154])
@@ -64,7 +61,6 @@ export const Planes = ({ center, zoom }) => {
       .addTo(map);
  */
     map.on("load", () => {
-
       console.log("map onload2", map)
     })
 
@@ -75,7 +71,7 @@ export const Planes = ({ center, zoom }) => {
 
   return (
     <div
-      /* style={{
+    /* style={{
         background: `#343332`,
         marginBottom: `1.45rem`,
       }} */
@@ -92,6 +88,6 @@ Planes.propTypes = {
 }
 
 Planes.defaultProps = {
-  center: [11.576124 , 48.137154],
+  center: [11.576124, 48.137154],
   zoom: 9,
 }

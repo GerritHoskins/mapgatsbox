@@ -8,7 +8,7 @@ module.exports = {
     description: `super simple mapbox example / starter for GatsbyJS.`,
     author: `pixeltronics`,
     mapbox_api_key: process.env.GATSBY_MAPBOX_API_KEY,
-    geoData:  `${__dirname}/src/utils/DE.json`,
+    /* geoData: `${__dirname}/src/utils/DE.json`, */
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

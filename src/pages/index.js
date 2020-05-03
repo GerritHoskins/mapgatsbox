@@ -24,7 +24,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <Map center={[11.576124 , 48.137154]} zoom={13} />
+      <Map center={[11.576124, 48.137154]} zoom={13} />
     </Layout>
   )
 }

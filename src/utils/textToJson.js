@@ -1,42 +1,41 @@
-var file_name = 'DE.txt';
+var file_name = "DE.txt"
 
-
-var readline = require('readline');
-var fs = require('fs');
+var readline = require("readline")
+var fs = require("fs")
 
 var lineReader = readline.createInterface({
-    input: fs.createReadStream(file_name)
-});
+  input: fs.createReadStream(file_name),
+})
 
-var isHeader = false;
-var columnNames = [];
+var isHeader = false
+var columnNames = []
 
 function parseLine(line) {
-    return line.trim().split('\t')
+  return line.trim().split("\t")
 }
 
 function createRowObject(values) {
-    var rowObject = {};
+  var rowObject = {}
 
-    columnNames.forEach((value,index) => {
-        rowObject[value] = values[index];
-    });
+  columnNames.forEach((value, index) => {
+    rowObject[value] = values[index]
+  })
 
-    return rowObject;
+  return rowObject
 }
 
-var json = {};
-json[file_name] = [];
+var json = {}
+json[file_name] = []
 
-lineReader.on('line', function (line) {
-    if(!isHeader) {
-        columnNames = parseLine(line);
-        isHeader = true;
-    } else {
-        json[file_name].push(createRowObject(parseLine(line)));
-    }
-});
+lineReader.on("line", function (line) {
+  if (!isHeader) {
+    columnNames = parseLine(line)
+    isHeader = true
+  } else {
+    json[file_name].push(createRowObject(parseLine(line)))
+  }
+})
 
-lineReader.on('close', function () {
-    fs.writeFileSync(file_name + '.json', JSON.stringify(json,null,2));
-});
+lineReader.on("close", function () {
+  fs.writeFileSync(file_name + ".json", JSON.stringify(json, null, 2))
+})
